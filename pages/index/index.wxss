@@ -1,21 +1,313 @@
 /**index.wxss**/
-.userinfo {
+.search{
+  background: white;
+  height: 100rpx;
   display: flex;
-  flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.search-navigator{
+height: 70rpx;
+width: calc(100% - 60rpx);
+border-radius: 20rpx;
+background-color:lightgrey;
+display: flex;
+padding-left: 20rpx;
+align-items: center;
+}
+.search .icon {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA8UExURUdwTGZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZjQWelcAAAATdFJOUwDUDlMW8DUFcdHpnc3cSLkosSd78uTdAAAAvUlEQVQoz4WS6QLDEBCE131L0nn/d23J0VCV+bP4LLsM0S6Tg1NQLmRDnYz1OOVti18OcFZLI7Utw/XGtEIS10wkKH3NVoWF3/byBerMNQ5be4vZ4I4Vi8S7+niC3bd55L54yvA1VSDSryJqheE4oZVFKMFBD6AGK0FBDiCHKgEwA/hZfsxkszun1U77nL7Q9G3nvzL6z1sH2ndOANi3eRmrhzjx6qGo2Z327pMNJSMO34paSkc7PdJI/2lc3naRCwMB9sl5AAAAAElFTkSuQmCC') center no-repeat;
+  background-size: 100%;
+  width: 32rpx;
+  height: 32rpx;
+}
+.search text{
+  line-height: 42rpx;
+  font-size: small;
+  padding-left: 10rpx;
+  color: gray;
+}
+.banner{
+  height: 312rpx;
+}
+.banner image {
+  width: 100%;
+  height: 312rpx;
+}
+.news{
+  height: 77rpx;
+  border-bottom: 1px solid lightgray;
+ display: flex;
+ align-items: center;
+ box-shadow:0 10rpx 30rpx #f5f5f5;
+ background: white;
+}
+.news .pictrue{
+  width: 124rpx;
+  height: 28rpx;
+  padding-right: 23rpx;
+  padding-left: 23rpx;
+border-right: 1rpx solid lightgray;
+box-sizing: content-box;
+display: flex;
+ align-items: center;
+}
+.news .pictrue image{
+  width: 100%;
+  height: 100%;
+}
+.news .swiperText{
+  padding-top: 5rpx;
+  height: 45rpx;
+  width: calc(100% - 144rpx);
+  padding-left: 20rpx;
+  text-align: center;
+  overflow: hidden;
+}
+.swiperText .text{
+  display: flex;
   align-items: center;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.news-navigator{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 30rpx;
+}
+.swiperText .label{
+  border: 1rpx solid chocolate;
+  color: chocolate;
+  font-size: 24rpx;
+  border-radius: 20rpx;
+  width: 40px;
+  margin-right: 20rpx;
+}
+.swiperText .newsTitle{
+  font-size: 24rpx;
+}
+.swiperText .iconfont{font-size:28rpx;color:#888;}
+.m-menu .item{
+  width: 150rpx;
+  height: 150rpx;
+}
+.m-menu{
+  padding-top: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+}
+.m-menu image{
+  display: block;
+  width: 64rpx;
+  height: 64rpx;
+  margin: 0 auto;
+  margin-bottom: 16rpx;
+}
+.m-menu text{
+  display: block;
+  text-align: center;
+  font-size: 23rpx;
+}
+.a-section{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  margin-top: 20rpx;
+  
+}
+.a-section .line{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 130rpx;
+  border-bottom: 1rpx solid lightgray;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.groupons .item{ 
+  padding: 30rpx;
+display: flex;
+justify-content: space-between;
+}
+.groupons .img{
+width: 220rpx;
+height: 220rpx;
+}
+.groupons .right{
+  float: right;
+  width: 65%;
+}
+.groupons .right .header{
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+}
+.groupons .right .header text{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  width: 70%;
+  max-lines: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.groupons .right .header .capsule-tag{
+padding-top: 10rpx;
+}
+.groupons .right .desc{
+  padding-top: 10rpx;
+  font-size: 25rpx;
+  line-height: 40rpx;
+  display: -webkit-box;
+  color: gray;
+  }
+  .groupons .right .price{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 10rpx;
+    align-items: center;
+    }
+ .groupons .right .price text{
+      font-size: 28rpx;
+      font-weight: bold;
+}
+.groupons .right .price .num{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: red;
+}
+.groupons .right .price .counterPrice{
+  font-size: 28rpx;
+  color: gray;
+  padding-left: 15rpx;
+  text-decoration: line-through;
+}
+.a-topic{
+  margin-top: 30rpx;
+  background: white;
+}
+.a-topic .title{
+  height: 75rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+padding-top: 30rpx;
+}
+.a-topic .content{
+  height: 533rpx;
+  width: 750rpx;
+}
+.a-topic .list{
+  white-space: nowrap;
+}
+.a-topic .content .item {
+  display: inline-block;
+  height: 533rpx;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.a-topic .content .img {
+  height: 387.5rpx;
+  width: calc(100% - 60rpx);
+  margin-bottom: 15rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
+.a-topic .content .np .name{
+  padding-right: 20rpx;
+  font-size: 28rpx;
 }
+.a-topic .content .np .price{
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  color: red;
+}
+.a-topic .content  .desc{
+  font-size: 25rpx;
+  color: gray;
+}
+.a-brand{
+  background: white;
+  margin-top: 30rpx;
+}
+.header{
+  height: 120rpx;
+  display: flex;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  align-items: center;
+  background: white;
+  justify-content: space-between;
+}
+.name{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.desc{
+  font-size: 26rpx;
+  color: gray;
+}
+.more{
+  font-size: 26rpx;
+  color: gray;
+}
+.iconfont{
+  font-size: 28rpx;
+  color: gray;
+}
+.a-brand .content{
+  display: flex;
+}
+.a-brand .content .item{ 
+width: 50%;
+height: 252rpx;
+overflow: hidden;
+}
+.a-brand .content .item:nth-child(2n+1){ 
+  width: 50%;
+  height: 252rpx;
+  overflow: hidden;
+  }
+  .a-brand .content .item .img{
+    width: 100%;
+    height: 252rpx;
+  }
+  .a-new .content{
+    padding: 31rpx 31rpx 45rpx 31rpx;
+    background: white;
+  }
+  .a-new .content .item{
+    float: left;
+    width: calc(50% - 22rpx);
+    margin: 11rpx;
+    background: yellow;
+  }
+  .a-new .content .item:nth-child(2n+1){
+    width: calc(50% - 22rpx);
+    margin: 11rpx;
+  }
+  .a-new .content .item .img{
+    width: 100%;
+    height: 324rpx;
+  }
+  .a-new .content .item .name{
+    font-size: 25rpx;
+      color: gray;
+      display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  }
+  .a-new .content .item .price{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: tomato;
+  }

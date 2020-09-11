@@ -1,54 +1,133 @@
 //index.js
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+const user = require('../../utils/user.js');
+
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    newGoods: [],
+    hotGoods: [],
+    topics: [],
+    brands: [],
+    groupons: [],
+    floorGoods: [],
+    banner: [],
+    channel: [],
+    coupon: [],
+    articles:[],
+    goodsCount: 0,
+    indicatorDots: false,
+    window: false,
+    colseCoupon:false
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+  onShareAppMessage: function() {
+    let userInfo = wx.getStorageSync('userInfo');
+    let shareUserId = 1;
+    if (userInfo){
+      shareUserId = userInfo.userId;
+    }
+    console.log('/pages/index/index?shareUserId=' + shareUserId);
+    return {
+      title: '聚惠星',
+      desc: '长沙市聚惠星科技与您共约',
+      path: '/pages/index/index?shareUserId=' + shareUserId
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.getIndexData();
+    wx.hideNavigationBarLoading() //完成停止加载
+    wx.stopPullDownRefresh() //停止下拉刷新
+  },
+  getIndexData: function() {
+    let that = this;
+    util.request(api.IndexUrl).then(function(res) {
+      if (res.errno === 0) {
+        that.setData({
+          newGoods: res.data.newGoodsList,
+          hotGoods: res.data.hotGoodsList,
+          topics: res.data.topicList,
+          brands: res.data.brandList,
+          floorGoods: res.data.floorGoodsList,
+          banner: res.data.banner,
+          articles: res.data.articles,
+          groupons: res.data.grouponList,
+          channel: res.data.channel,
+          coupon: res.data.couponList
+        });
+      }
+    });
+    util.request(api.GoodsCount).then(function (res) {
+      that.setData({
+        goodsCount: res.data.goodsCount
+      });
+    });
+  },
+  onLoad: function(options) {
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      colseCoupon:false
     })
+    //如果有分享用户，则设置
+    if (options.shareUserId){
+      wx.setStorageSync('shareUserId', options.shareUserId);
+    }
+
+    // 页面初始化 options为页面跳转所带来的参数
+    if (options.scene) {
+      //这个scene的值存在则证明首页的开启来源于朋友圈分享的图,同时可以通过获取到的goodId的值跳转导航到对应的详情页
+      var scene = decodeURIComponent(options.scene);
+      console.log("scene:" + scene);
+
+      let info_arr = [];
+      info_arr = scene.split(',');
+      let _type = info_arr[0];
+      let id = info_arr[1];
+
+      if (_type == 'goods') {
+        wx.navigateTo({
+          url: '../goods/goods?id=' + id
+        });
+      } else if (_type == 'groupon') {
+        wx.navigateTo({
+          url: '../goods/goods?grouponId=' + id
+        });
+      } else {
+    	if (id != null){
+    		wx.setStorageSync('shareUserId', id);
+    	}
+        wx.navigateTo({
+          url: '../index/index'
+        });
+      }
+    }
+
+    // 页面初始化 options为页面跳转所带来的参数
+    if (options.grouponId) {
+      //这个pageId的值存在则证明首页的开启来源于用户点击来首页,同时可以通过获取到的pageId的值跳转导航到对应的详情页
+      wx.navigateTo({
+        url: '../goods/goods?grouponId=' + options.grouponId
+      });
+    }
+
+    // 页面初始化 options为页面跳转所带来的参数
+    if (options.goodId) {
+      //这个goodId的值存在则证明首页的开启来源于分享,同时可以通过获取到的goodId的值跳转导航到对应的详情页
+      wx.navigateTo({
+        url: '../goods/goods?id=' + options.goodId
+      });
+    }
+
+    // 页面初始化 options为页面跳转所带来的参数
+    if (options.orderId) {
+      //这个orderId的值存在则证明首页的开启来源于订单模版通知,同时可以通过获取到的pageId的值跳转导航到对应的详情页
+      wx.navigateTo({
+        url: '../ucenter/orderDetail/orderDetail?id=' + options.orderId
+      });
+    }
+
+    this.getIndexData();
   }
 })

@@ -5,13 +5,14 @@
     "pages/cart/index",
     "pages/category/index",
     "pages/user/index",
-    "pages/auth/login/index"
+    "pages/auth/login/index",
+    "pages/search/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#85c43f",
     "navigationBarTitleText": "首页",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "backgroundColor": "#fafafa",

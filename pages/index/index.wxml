@@ -1,13 +1,133 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="search">
+    <navigator url="/pages/search/index" class="search-navigator">
+        <image class="icon"/>
+        <text>商品搜索，共款供您选择</text>
+    </navigator>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{banner}}" wx:key="id">
+      <image src="{{item.url}}" background-size="cover"></image>
+    </swiper-item>
+  </swiper>
+  <view class="news">
+    <view class="pictrue">
+      <image src="/static/images/news.png"/>
+    </view>
+    <view class="swiperText">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="2500" duration="500" vertical="true" circular="true">
+        <swiper-item wx:for="{{articles}}" wx:for-index="index" wx:key="id" catchtouchmove="catchtouchmove">
+          <navigator hover-class="none" url="" class="news-navigator">
+            <view class="text">
+              <view class="label" wx:if="{{index == 0}}">最新</view>
+              <view class="newsTitle">{{item.title}}</view>
+            </view>
+            <view class="iconfont icon-xiangyou"></view>
+          </navigator>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <view class="m-menu">
+    <navigator hover-class="none" class="item" url="" wx:for="{{channel}}" wx:key="id">
+      <image src="{{item.iconUrl}}" background-size="cover"/>
+      <text>{{item.name}}</text>
+    </navigator>
+  </view>
+  <view class="a-section" wx:if="{{groupons.length > 0}}">
+    <view class="header">
+      <view class="title">
+      <view class="name">团购专区</view>
+      <text class="desc">邀请好友一起团购，享受折扣减免</text>
+      </view>
+    <navigator class="more" hover-class="none" url="">更多<text class='iconfont icon-jiantou'></text></navigator>
+    </view>
+  <view class="groupons">
+    <view class="item" wx:for="{{groupons}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+      <navigator url="">
+        <image class="img" src="{{item.goods.picUrl}}" background-size="cover"/>
+        <view class="right">
+          <view class="text">
+            <view class="header">
+              <text>{{item.goods.name}}</text>
+              <view class="capsule-tag">
+                  <zan-capsule color="#e67249" leftText="团购" rightText="{{item.groupon_member}}" />
+                </view>
+            </view>
+            <text class="desc">{{item.goods.brief}}</text>
+            <view class="price">
+              <text>团购价：</text>
+              <text class="num">￥{{item.groupon_price}}</text>
+              <view class="counterPrice">￥{{item.goods.counterPrice}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  </view>
+  <view class="a-topic" wx:if="topics.length > 0">
+    <view class=" title">
+      <navigator url="">
+        <text class="name">活动专场</text>
+      </navigator>
+    </view>
+  <view class="content">
+    <scroll-view scroll-x="true" class="list">
+      <view class="item" wx:for="{{topics}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+        <navigator url="">
+          <image class="img" src="{{item.picUrl}}" background-size="cover" />
+          <view class="np">
+          <text class="name">{{item.title}}</text>
+          <text class="price">￥{{item.price}}元起</text>
+        </view>
+        <text class="desc">{{item.subtitle}}</text>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+  </view>
+  <view class="a-brand">
+    <view class="header">
+      <view class="title">
+        <view class="name">品牌厂商直供</view>
+       <view class="desc">知名品牌厂商直供，好品质，更优惠</view>
+      </view>
+      <navigator class="more" hover-class="none" url="">更多
+      <text class="iconfont icon-jiantou"></text>
+    </navigator>
+    </view>
+   <view class="content">
+     <view class="item" wx:for="{{brands}}" wx:key="id">
+       <navigator url="">
+         <view class="wrap">
+           <image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
+         </view>
+       </navigator>
+     </view>
+   </view>
+  </view>
+  <view class="a-new" wx:if="{{newGoods.length > 0}}">
+    <view class="header">
+      <view class="title">
+      <view class="name">全网 · 新品首发
+        <text class="new">NEW~</text>
+      </view>
+      <text class="desc">全网最新上架更新</text>
+      </view>
+      <navigator class="more" hover-class="none" url="">更多
+        <text class="iconfont icon-jiantou"></text>
+      </navigator>
+    </view>
+  <view class="content">
+    <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+      <navigator url="">
+        <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
+        <text class="name">{{item.name}}</text>
+          <text class="price">￥{{item.retailPrice}}</text>
+      </navigator>
+    </view>
+  </view>
   </view>
 </view>
