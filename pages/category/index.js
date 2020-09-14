@@ -1,20 +1,67 @@
 // pages/category/index.js
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    categoryList: [],
+    currentCategory: {},
+    currentSubCategoryList: {},
+    scrollLeft: 0,
+    scrollTop: 0,
+    goodsCount: 0,
+    scrollHeight: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getCatalog();
   },
-
+  getCatalog:function(){
+    let that = this;
+    wx.showLoading({
+      title: '加载中...',
+    });
+    util.request(api.CatalogList).then(res => {
+      this.setData({
+        categoryList:res.data.categoryList,
+        currentCategory:res.data.currentCategory,
+        currentSubCategoryList:res.data.currentSubCategory
+      });
+      wx.hideLoading({
+        success: (res) => {},
+      })
+    });
+    util.request(api.GoodsCount).then(res => {
+      this.setData({
+        goodsCount:res.data.goodsCount
+      })
+    });
+  },
+  getCurrentCategory:function(id){
+    let that = this
+    util.request(api.CatalogCurrent,{id:id}).then(res => {
+      this.setData({
+        categoryList: res.data.categoryList,
+        currentCategory: res.data.currentCategory,
+        currentSubCategoryList: res.data.currentSubCategory
+      })
+    })
+  },
+  switchCate:function(event){
+    var that = this
+    var currentTarget = event.currentTarget
+    if (this.data.currentCategory.id == event.currentTarget.dataset.id) {
+      return false
+    }
+    this.getCurrentCategory(event.currentTarget.dataset.id)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -47,7 +94,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    wx.showNavigationBarLoading({
+      success: (res) => {},
+    })
+    this.getCatalog()
+    wx.hideNavigationBarLoading({
+      success: (res) => {},
+    })
+    wx.stopPullDownRefresh({
+      success: (res) => {},
+    })
   },
 
   /**

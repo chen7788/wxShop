@@ -6,7 +6,8 @@
     "pages/category/index",
     "pages/user/index",
     "pages/auth/login/index",
-    "pages/search/index"
+    "pages/search/index",
+    "pages/category/desc/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

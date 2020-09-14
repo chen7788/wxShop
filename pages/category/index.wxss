@@ -1,1 +1,101 @@
 /* pages/category/index.wxss */
+.container{
+  background: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search .icon{
+  width: 30rpx;
+  height: 30rpx;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA8UExURUdwTGZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZjQWelcAAAATdFJOUwDUDlMW8DUFcdHpnc3cSLkosSd78uTdAAAAvUlEQVQoz4WS6QLDEBCE131L0nn/d23J0VCV+bP4LLsM0S6Tg1NQLmRDnYz1OOVti18OcFZLI7Utw/XGtEIS10wkKH3NVoWF3/byBerMNQ5be4vZ4I4Vi8S7+niC3bd55L54yvA1VSDSryJqheE4oZVFKMFBD6AGK0FBDiCHKgEwA/hZfsxkszun1U77nL7Q9G3nvzL6z1sH2ndOANi3eRmrhzjx6qGo2Z327pMNJSMO34paSkc7PdJI/2lc3naRCwMB9sl5AAAAAElFTkSuQmCC') center no-repeat;
+  background-size: 100%;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}
+.search .input {
+  height: 70rpx;
+  margin: 30rpx;
+  width: calc(100% - 60rpx);
+  background-color: lightgray;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.search text{
+  font-size: 32rpx;
+  color: gray;
+}
+
+.catalog{
+  border-top: lightgray solid 1rpx;
+  display: flex;
+  flex: 1;
+}
+.catalog .nav{
+  width: 25%;
+}
+.catalog .nav .item{
+  height: 60rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  text-align: left;
+}
+.catalog .nav .item.active{
+  color: #85c43f;
+  font-size: 29rpx;
+  border-left: 6rpx solid #85c43f;
+}
+.catalog .cate{
+  padding-top: 30rpx;
+  width: 75%;
+  border-left: solid lightgrey 1rpx;
+}
+.catalog .cate .image{
+  height: 200rpx;
+  margin-left: 30rpx;
+  width: calc(100% - 60rpx);
+}
+.catalog .hd{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.catalog .hd text{
+  font-size: 28rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+}
+.catalog .hd .line{
+  width: 100rpx;
+  height: 1rpx;
+  background: lightgray;
+}
+.catalog .bd{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.catalog .bd .item{
+  float: left;
+  width: calc((100% - 40rpx) / 3);
+  height: 200rpx;
+  margin-right: 20rpx;
+  margin-bottom: 5rpx;
+  text-align: center;
+}
+.catalog .bd .item.last {
+  margin-right: 0;
+}
+.catalog .bd .icon{
+  width: 100%;
+  height: 152rpx;
+}
+.catalog .bd .name{
+  font-size: 24rpx;
+  display: block;
+}
