@@ -127,27 +127,36 @@ display: flex;
   justify-content: space-between;
 }
 .groupons .item{ 
-  padding: 30rpx;
-display: flex;
-justify-content: space-between;
+  padding: 10rpx;
+flex-direction: row;
 }
 .groupons .img{
+float: left;
 width: 220rpx;
 height: 220rpx;
+padding-bottom: 10rpx;
 }
 .groupons .right{
   float: right;
-  width: 65%;
+  margin-right: 20rpx;
+  width: calc(100% - 260rpx);
 }
 .groupons .right .header{
+  height: 50rpx;
+  position: relative;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  height: 80rpx;
+  padding-left: 0;
+  padding-right: 0;
+  width: auto;
+  
 }
 .groupons .right .header text{
-  font-size: 30rpx;
-  line-height: 42rpx;
-  width: 70%;
+  flex: 1;
+  font-size: 26rpx;
+  line-height: 35rpx;
+  width: 100%;
   max-lines: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -156,10 +165,11 @@ height: 220rpx;
   text-overflow:ellipsis;
 }
 .groupons .right .header .capsule-tag{
-padding-top: 10rpx;
+width: 90rpx;
+padding-right: 0;
+padding-left: 10rpx;
 }
 .groupons .right .desc{
-  padding-top: 10rpx;
   font-size: 25rpx;
   line-height: 40rpx;
   display: -webkit-box;
@@ -168,7 +178,7 @@ padding-top: 10rpx;
   .groupons .right .price{
     display: flex;
     justify-content: flex-start;
-    padding-top: 10rpx;
+    padding-top: 5rpx;
     align-items: center;
     }
  .groupons .right .price text{

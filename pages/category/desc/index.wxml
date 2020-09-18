@@ -1,2 +1,23 @@
 <!--pages/category/desc/index.wxml-->
-<text>pages/category/desc/index.wxml</text>
+<view class="container">
+  <view class="cate-nav">
+    <scroll-view scroll-x="true" scroll-left="{{scrollLeft}}">
+      <view wx:for="{{navList}}" class="item {{id == item.id ? 'active':''}} " wx:key="id" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">
+        <view class="name">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <swiper class="swiper" duration="300" current="{{clickNumber}}" bindchange="swiperTab"  bindtransition="swiperTransition">
+    <swiper-item wx:for="{{goodsList}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" item-id="{{item.id}}">
+      <scroll-view class="content" scroll-y="true" lower-threshold="50" scroll-top="{{scrollTop}}" bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad" bindscroll="scroll">
+        <view class="cate-item">
+          <navigator class="item {{(index + 1) % 2 == 0 ? 'item-b' : ''}}" url="/pages/goods/index?id={{item.id}}" wx:for="{{item.goods}}" wx:key="id">
+            <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
+            <text class="name">{{item.name}}</text>
+            <text class="price">￥{{item.retailPrice}}</text>
+          </navigator>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

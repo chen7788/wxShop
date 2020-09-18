@@ -1,3 +1,6 @@
 {
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "enableReachBottom": true,
   "usingComponents": {}
 }

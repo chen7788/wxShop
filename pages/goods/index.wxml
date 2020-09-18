@@ -1,0 +1,78 @@
+<!--pages/goods/index.wxml-->
+<view class="container">
+  <swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{goods.gallery}}" wx:key="id">
+      <image src="{{item}}" background-size="cover"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="goods_name">
+  <view class="left">{{goods.name}}</view>
+  <view class="right iconfont icon-fenxiang" bindtap="shareFriendCircle">分享</view>
+  </view>
+  
+  <view class="goods-info">
+    <view class="desc">{{goods.brief}}</view>
+    <view class="price">
+      <view class="retail-price">￥{{checkedSpecPrice}}</view>
+      <view class="counterPrice">￥{{goods.counterPrice}}</view>
+    </view>
+    <view class="brand" wx:if="{{brand.name}}">
+      <navigator hover-class="none" url="">
+        <text>{{brand.name+' >'}}</text>
+      </navigator>
+    </view>
+    <view class="line"></view>
+  </view>
+  <view class="section-nav" bindtap="switchAttrPop">
+    <text>{{checkedSpecText}}</text>
+    <image class="i jhx_f6" src="/static/images/address_right.png" background-size="cover"></image>
+  </view>
+  <view class="goods-attr">
+    <view class="title">商品参数</view>
+    <view class="content">
+      <view class="item" wx:for="{{attribute}}" wx:key="name">
+        <view class="left">{{item.attribute}}</view>
+        <view class="right">{{item.value}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="detail">
+    <view class="item" wx:for="{{goods.gallery}}" wx:key="id">
+      <image src="{{item}}" background-size="cover"></image>
+    </view>
+  </view>
+  <view class="common-problem">
+    <view class="header">
+      <view class="left"></view>
+      <view class="title">常见问题</view>
+      <view class="right"></view>
+    </view>
+    <view class="content">
+      <view class="item" wx:for="{{issueList}}" wx:key="id">
+        <view class="question-box">
+          <text class="spot"></text>
+          <text class="question">{{item.question}}</text>
+        </view>
+        <view class="answer">{{item.answer}}</view>
+      </view>
+    </view>
+  </view>
+   <!-- 大家都在看 -->
+   <view class="related-goods" wx:if="{{relatedGoods.length > 0}}">
+    <view class="header">
+      <view class="left"></view>
+      <view class="title">大家都在看</view>
+      <view class="right"></view>
+    </view>
+    <view class="content">
+      <view class="item" wx:for="{{relatedGoods}}" wx:key="id">
+        <navigator url="/pages/goods/goods?id={{item.id}}">
+          <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
+          <text class="name">{{item.name}}</text>
+          <text class="price">￥{{item.retailPrice}}</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
