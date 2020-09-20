@@ -75,4 +75,24 @@
       </view>
     </view>
   </view>
+  
+ <!-- 联系客服 -->
+<button class='contact' type="default-dark" session-from="weapp" size="27" send-message-title="{{goods.name}}" send-message-img="{{goods.gallery[0]}}" show-message-card="true" send-message-path="/pages/index/index?goodId={{goods.id}}"  open-type='contact' plain>
+</button>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-btn">
+    <view class="collect" bindtap="addCollectOrNot" wx:if="{{!isGropon}}">
+      <image class="icon" src="{{collectImage}}"></image>
+    </view>
+    <view class="cart" wx:if="{{!isGroupon}}">
+      <view class="box">
+        <text class="cart-count>{{cartGoodsCount}}"></text>
+        <image bindtap="openCartPage" class="icon"  src="/static/images/ic_menu_shoping_nor.png"></image>
+      </view>
+    </view>
+    <view class="r" bindtap="addToCart" wx:if="{{!soldout}}"  wx:if="{{!isGroupon}}">加入购物车</view>
+    <view class="c" bindtap="addFast" wx:if="{{!soldout}}">>{{isGroupon?'参加团购':'立即购买'}}</view>
+    <view class="n" wx:if="{{soldout}}">商品已售空</view>
+  </view>
 </view>
