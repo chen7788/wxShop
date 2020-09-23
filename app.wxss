@@ -3,6 +3,8 @@
 
 .container {
   box-sizing: border-box;
-  background: lightgrey;
+  background: #f4f4f4;
   font-family: PingFangSC-Light, helvetica, 'Heiti SC';
 }
+button{padding:0;margin:0;line-height:normal;background-color:#fff;font-size: 26rpx;}
+button::after{border:0;}

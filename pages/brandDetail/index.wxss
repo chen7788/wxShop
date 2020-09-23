@@ -1,0 +1,78 @@
+/* pages/brandDetail/index.wxss */
+.container{
+  background: white;
+}
+.brand-info .name{
+  height: 290rpx;
+}
+.brand-info .name .info{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 290rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.brand-info .name .info text{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: white;
+}
+.brand-info .name .info .line{
+  width: 150rpx;
+  height: 2rpx;
+  background: white;
+}
+.brand-info .name .img{
+  height: 100%;
+  width: 100%;
+}
+
+.brand-info .desc{
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  color: #666;
+}
+.cate-item{
+  border-top: 20rpx solid lightgray;
+  
+}
+.cate-item .item{
+  float: left;
+  width: calc(50% - 63rpx);
+  border-left: lightgray solid 3rpx;
+  border-top: lightgray solid 6rpx;
+  padding-top: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+.cate-item .item-b{
+  border-right: lightgray solid 3rpx;
+  border-left: none;
+}
+.cate-item .item .img{
+  height: 302rpx;
+  width: 100%;
+}
+.cate-item .item .name{
+  padding-top: 5rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  text-overflow: clip;
+  white-space: nowrap;  
+overflow:hidden;
+font-size: 28rpx;
+}
+.cate-item .item .price{
+  font-size: 26rpx;
+  color: #b4282d;
+  padding-bottom: 10rpx;
+}

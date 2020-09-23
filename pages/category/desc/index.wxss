@@ -7,6 +7,7 @@
 .cate-nav scroll-view{
   white-space: nowrap
 }
+
 .cate-nav .item {
   min-width: 130rpx;
   display: inline-block;
@@ -24,22 +25,23 @@
 }
 .swiper{
   margin-top: 10rpx;
-  flex:1;
+  height: calc(100vh - 100rpx);
+  width: 100%;
 }
 .swiper .content{
   width: 100%;
   background: lightgray;
   height: 100%;
-  overflow: auto;
 }
 .swiper .cate-item{
  margin-left: 10rpx;
  margin-right: 10rpx;
- overflow: auto;
 }
 .swiper .cate-item .item{
-  width: calc(50% - 3rpx);
+  width: calc(50% - 43rpx);
   float: left;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
   margin-right: 3rpx;
   margin-bottom: 6rpx;
   text-align: center;
@@ -62,6 +64,11 @@
   font-size: 26rpx;
 }
 .swiper .cate-item .img{
-  width: 302rpx;
+  width: 100%;
   height: 302rpx;
+}
+.swiper .cate-item .price{
+  font-size: 26rpx;
+  color: #b4282d;
+  padding-bottom: 10rpx;
 }

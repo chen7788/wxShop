@@ -4,11 +4,12 @@
     "pages/logs/logs",
     "pages/cart/index",
     "pages/category/index",
-    "pages/user/index",
     "pages/auth/login/index",
     "pages/search/index",
     "pages/category/desc/index",
-    "pages/goods/index"
+    "pages/goods/index",
+    "pages/brandDetail/index",
+    "pages/ucenter/user/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,7 +42,7 @@
         "text": "购物车"
       },
       {
-        "pagePath": "pages/user/index",
+        "pagePath": "pages/ucenter/user/index",
         "iconPath": "static/images/my.png",
         "selectedIconPath": "static/images/my@selected.png",
         "text": "我的"

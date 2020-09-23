@@ -9,7 +9,7 @@
   </view>
   <swiper class="swiper" duration="300" current="{{clickNumber}}" bindchange="swiperTab"  bindtransition="swiperTransition">
     <swiper-item wx:for="{{goodsList}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" item-id="{{item.id}}">
-      <scroll-view class="content" scroll-y="true" lower-threshold="50" scroll-top="{{scrollTop}}" bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad" bindscroll="scroll">
+      <scroll-view class="content" scroll-y="true" lower-threshold="50" scroll-top="{{scrollTop}}" bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad" bindscroll="scroll" >
         <view class="cate-item">
           <navigator class="item {{(index + 1) % 2 == 0 ? 'item-b' : ''}}" url="/pages/goods/index?id={{item.id}}" wx:for="{{item.goods}}" wx:key="id">
             <image class="img" src="{{item.picUrl}}" background-size="cover"></image>

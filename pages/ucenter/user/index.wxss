@@ -1,0 +1,131 @@
+/* pages/ucenter/user/index.wxss */
+.user:after{
+  position: absolute;
+  left: 0;
+  top: 200rpx;
+  bottom: 0;
+  right: 0;
+  z-index: -2;
+  content: '';
+  background-color: #f4f4f4;
+
+}
+.user .header{
+  height: 190rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30rpx;
+  padding-right: 50rpx;
+  position: relative;
+}
+.user .header:after{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: -98;
+  right: 0;
+  z-index: -1;
+  background-color: #85c43f;
+  content:'';height:320rpx;width: 100%;border-radius: 0 0 30% 30%;
+}
+
+.header .picTxt image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  border: 3rpx solid white;
+
+}
+.header .picTxt{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.header .picTxt .text{
+  margin-left: 20rpx;
+}
+.header .picTxt .name{
+  font-size: 32rpx;
+  color: white;
+  margin-bottom: 10rpx;
+}
+.header .picTxt .id{
+  font-size: 26rpx;
+  color: lightgray;
+}
+.header .icon-shezhi{
+  font-size:38rpx;color:#fff
+}
+.nav{
+  margin: 20rpx;
+  padding: 20rpx;
+  background: white;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120rpx;
+}
+.nav .item{
+  text-align: center;
+}
+.nav .item .title{
+  font-size: 26rpx;
+  color: gray;
+  padding-bottom: 10rpx;
+}
+.myOrder{
+  margin: 20rpx;
+  background: white;
+  border-radius: 15rpx;
+}
+.myOrder .title{
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: lightgray dashed 1rpx;
+}
+.orderState{
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+.orderState .item image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.orderState .item name{
+  font-size: 26rpx;
+}
+.myService{
+  margin: 20rpx;
+  background: white;
+  border-radius: 15rpx;
+}
+.myService .title{
+  padding: 20rpx;
+  border-bottom: lightgray dashed 1rpx;
+}
+.serviceList{
+  padding: 20rpx;
+  text-align: center;
+  height: 280rpx;
+}
+.serviceList .item{
+  float: left;
+  width: 25%;
+  height: auto;
+  color: #333;
+  padding-bottom: 20rpx;
+}
+.myService .serviceList image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.serviceList .name{
+  font-size: 26rpx;
+}
